@@ -88,7 +88,7 @@ INSERT INTO `rages` (`id`, `image`, `name`) VALUES
 (27, 'challenge-accepted-drunk.png', 'Challenge Accepted (Drunk)'),
 (26, 'challenge accepted.png', 'Challenge Accepted'),
 (25, 'cereal-guy.png', 'Cereal Guy'),
-(24, 'cereal_spit', 'Cereal Spit'),
+(24, 'cereal_spit.png', 'Cereal Spit'),
 (23, 'awwww yeaaaah.png', 'Awwww Yeaaaah'),
 (22, 'are-you-serious.png', 'Are You Serious?'),
 (21, 'agog.png', 'Agog'),
