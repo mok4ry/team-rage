@@ -13,14 +13,14 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -43,8 +43,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="index.php">Team Status</a></li>
-              <li><a href="changestatus.php">Change Status</a></li>
-			  <li><a href="teamsays.php">%$#@ My Team Says</a></li>
+              <li><a href="app/changestatus.php">Change Status</a></li>
+			  <li><a href="app/teamsays.php">%$#@ My Team Says</a></li>
             </ul>
           </div><!--/.nav-collapse -->
 		   <a href="index.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
@@ -57,7 +57,7 @@
       <!-- Example row of columns -->
       <div class="row">
       <?php
-     	include('config.php');
+     	include('src/config.php');
 		
 		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
 		mysql_select_db($db_name) or die(mysql_error());
@@ -94,7 +94,7 @@
 				while($rage_row = mysql_fetch_array( $rage_result ))
 				{
 					$rageName = $rage_row['name'];
-					$rageImage = "img/rage_guys/" . $rage_row['image'];
+					$rageImage = "assets/img/rage_guys/" . $rage_row['image'];
 				}
 			}
 			else
