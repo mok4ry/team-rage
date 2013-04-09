@@ -27,6 +27,6 @@
 	//echo($query);
 	$result = mysql_query($query) or die(mysql_error());  
 	
-	header("Location: ../app/teamsays.php");
+	header("Location: ../index.php");
 
 ?>

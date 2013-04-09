@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `rage_id` int(11) NOT NULL,
   `lastUpdated` varchar(45) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
@@ -40,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `name`, `rage_id`, `lastUpdated`, `description`, `manualImage`) VALUES
-(1, 'Derp', 24, '4/14/2012 - 5:44 AM', '', '');
+INSERT INTO `members` (`id`, `name`, `password`, `rage_id`, `lastUpdated`, `description`, `manualImage`) VALUES
+(1, 'Derp', 'pass', 24, '4/14/2012 - 5:44 AM', '', '');
 
 -- --------------------------------------------------------
 

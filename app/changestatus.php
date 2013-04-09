@@ -53,8 +53,6 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="../index.php">Team Status</a></li>
-              <li class="active"><a href="changestatus.php">Change Status</a></li>
-			  <li><a href="teamsays.php">%$#@ My Team Says</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -63,7 +61,7 @@
     
     <div class="container">
     
-    <div class="row">
+    <div class="row" style="float:left;display:inline;width:49%;">
     <div class="span8">
       <form class="form-horizontal" action="../src/ragesub.php" method="post">
         <fieldset>
@@ -139,6 +137,106 @@
 -->
   </div>
 
+	<div class="row" style="float:right;display:inline;width:49%;">
+    <div class="span8">
+      <form class="form-horizontal" action="../src/teamsayssub.php" method="post">
+        <fieldset>
+          <legend>Did someone say something dumb?</legend>
+          <div class="control-group">
+            <label class="control-label" for="name">Who said it?</label>
+            <div class="controls">
+              <select id="name" name="name">
+              
+              <option>(Pick One)</option>
+             
+             <?php
+		        $members = mysql_query("SELECT * FROM members ORDER BY name") or die(mysql_error()); 
+             	while($row = mysql_fetch_array( $members ))
+				{
+			 ?>
+			 
+			 	<option value="<?php echo($row['id']); ?>"><?php echo($row['name']); ?></option>
+				
+				<?php
+				}
+           
+             ?>
+              </select>
+            </div>
+          </div>
+		<div class="control-group">
+            <label class="control-label" for="context">What's the context?</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="context" name="context">
+			  <p class="help-block">'No context' will be added automatically if you don't set anything.</p>
+            </div>
+          </div>
+		  
+		   <div class="control-group">
+            <label class="control-label" for="quote">What'd he say?</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="quote" name="quote" rows="3"></textarea>
+            </div>
+          </div>
+		  
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="icon-fire icon-white"></i> RAGE</button>
+            <button type="reset" class="btn">Just Kidding</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+	
+    <div class="row">
+		<span class="span6">
+		
+		<?php
+     	include('../src/config.php');
+		
+		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
+		mysql_select_db($db_name) or die(mysql_error());
+		
+		$result = mysql_query("SELECT * FROM quotes ORDER BY id DESC") or die(mysql_error()); 
+		
+		$i = 0;
+	
+		while($row = mysql_fetch_array( $result ))
+		{
+			$id = $row['id'];
+			$memberId = $row['member_id'];
+			$context = $row['context'];
+			$quote = $row['quote'];
+			$date = $row['date'];
+			
+			$nameResult = mysql_query("SELECT * FROM members WHERE id = '$memberId'");
+			
+			while($nameRow = mysql_fetch_array( $nameResult ))
+			{
+				$name = $nameRow['name'];
+				
+				?>
+				
+				
+				
+				<blockquote>
+					<a style="float:right" class="btn btn-danger" href="../src/deletequote.php?id=<?php echo($id) ?>"><i class="icon-trash icon-white"></i> Delete</a>
+					<p><strong>"<?php echo($quote) ?>"</strong></p>
+					<small>
+					<?php echo($name) ?> (<?php echo($context) ?> - <?php echo($date) ?>)
+					</small>
+				</blockquote>
+				
+				<?php
+			}
+			
+		}
+		
+		?>
+		
+		</span>
+    </div>
+	
+  </div>
 
     </div> <!-- /container -->
 

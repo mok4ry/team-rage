@@ -43,8 +43,6 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="index.php">Team Status</a></li>
-              <li><a href="app/changestatus.php">Change Status</a></li>
-			  <li><a href="app/teamsays.php">%$#@ My Team Says</a></li>
             </ul>
           </div><!--/.nav-collapse -->
 		   <a href="index.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
@@ -52,8 +50,56 @@
       </div>
     </div>
 
-    <div class="container">
 
+        <div class="row" style="float:left;display:inline;width:33%;">
+		<span class="span6">
+		
+		<?php
+     	include('src/config.php');
+		
+		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
+		mysql_select_db($db_name) or die(mysql_error());
+		
+		$result = mysql_query("SELECT * FROM quotes ORDER BY id DESC") or die(mysql_error()); 
+		
+		$i = 0;
+	
+		while($row = mysql_fetch_array( $result ))
+		{
+			$id = $row['id'];
+			$memberId = $row['member_id'];
+			$context = $row['context'];
+			$quote = $row['quote'];
+			$date = $row['date'];
+			
+			$nameResult = mysql_query("SELECT * FROM members WHERE id = '$memberId'");
+			
+			while($nameRow = mysql_fetch_array( $nameResult ))
+			{
+				$name = $nameRow['name'];
+				
+				?>
+				
+				
+				
+				<blockquote>
+					<p><strong>"<?php echo($quote) ?>"</strong></p>
+					<small>
+					<?php echo($name) ?> (<?php echo($context) ?> - <?php echo($date) ?>)
+					</small>
+				</blockquote>
+				
+				<?php
+			}
+			
+		}
+		
+		?>
+		
+		</span>
+    </div>
+
+    <div class="container" style="float:right;display:inline;width:66%;">
       <!-- Example row of columns -->
       <div class="row">
       <?php
@@ -103,11 +149,7 @@
 				$rageName = "(manually set)";
 			}
 			
-			
-			
-			
-			
-			if ($i % 3 == 0)
+			if ($i % 2 == 0 )
 			{
 				echo('</div>');
 				echo('<div class="row">');
@@ -131,8 +173,7 @@
        
       </div>
 
-      <hr>
-
+	<hr>
       <!-- <footer>
         <p>Version 1.1</p>
       </footer> -->
