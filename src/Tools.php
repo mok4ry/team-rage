@@ -30,7 +30,6 @@ class Tools{
     unset($_SESSION['login_time']);
     unset($_SESSION['logged_in']);
     session_destroy();
-    echo "Destroyed";
   }
 
   public function get($id)
