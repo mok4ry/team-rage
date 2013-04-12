@@ -45,7 +45,8 @@
               <li class="active"><a href="index.php">Team Status</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-            <?php if(isset($_SESSION['logged_in'])) : ?>
+            <?php session_start();
+		if(isset($_SESSION['logged_in'])) : ?>
 		<a href="src/logout.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Logout</a>  
             <?php else : ?>
 		<a href="app/login.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Login</a>
@@ -61,13 +62,16 @@
 		
 		<?php
      	include('src/config.php');
-        //require_once 'includes/global.inc.php';
+       // require_once 'includes/global.inc.php';
 		
 		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
 		mysql_select_db($db_name) or die(mysql_error());
 		
-		$result = mysql_query("SELECT * FROM quotes ORDER BY id DESC") or die(mysql_error()); 
+		$sql = "SELECT * from quotes ORDER BY id DESC";
+		$result = mysql_query($sql) or die(mysql_error()); 
 		
+		//$db = new DB();
+
 		$i = 0;
 	
 		while($row = mysql_fetch_array( $result ))
@@ -78,8 +82,8 @@
 			$quote = $row['quote'];
 			$date = $row['date'];
 			
+			//$nameResult = $db->select('members', "id = $memberID");
 			$nameResult = mysql_query("SELECT * FROM members WHERE id = '$memberId'");
-			
 			while($nameRow = mysql_fetch_array( $nameResult ))
 			{
 				$name = $nameRow['name'];
@@ -110,10 +114,11 @@
       <div class="row">
       <?php
      	include('src/config.php');
+	//require_once 'includes/global.inc.php';
 		
 		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
 		mysql_select_db($db_name) or die(mysql_error());
-		
+	
 		$result = mysql_query("SELECT * FROM members ORDER BY name") or die(mysql_error()); 
 		
 		$i = 0;
