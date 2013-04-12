@@ -43,6 +43,12 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="index.php">Team Status</a></li>
+	      <li style="font-size:1em;">
+	  <?php session_start();
+            if(isset($_SESSION['logged_in'])) : ?>
+              <a href="app/changestatus.php">Change Status</a>
+          <?php endif; ?>
+	      </li>
             </ul>
           </div><!--/.nav-collapse -->
             <?php session_start();
