@@ -45,7 +45,12 @@
               <li class="active"><a href="index.php">Team Status</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-		   <a href="index.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
+            <?php if(isset($_SESSION['logged_in'])) : ?>
+		<a href="src/logout.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Logout</a>  
+            <?php else : ?>
+		<a href="app/login.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Login</a>
+	    <?php endif; ?>
+		<a href="index.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
         </div>
       </div>
     </div>
@@ -56,6 +61,7 @@
 		
 		<?php
      	include('src/config.php');
+        //require_once 'includes/global.inc.php';
 		
 		mysql_connect($db_hostname, $db_user, $db_pass) or die(mysql_error());
 		mysql_select_db($db_name) or die(mysql_error());
