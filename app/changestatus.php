@@ -53,13 +53,16 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="../index.php">Team Status</a></li>
-	      <li class='active'>
 		<?php session_start(); 
 		  if(isset($_SESSION['logged_in'])) : ?>
-		  <a href="changestatus.php">Change Status</a>
+		    <li class="active"><a href="changestatus.php">Change Status</a></li>
 		<?php endif ; ?>
             </ul>
           </div><!--/.nav-collapse -->
+	  <?php session_start();
+	    if(isset($_SESSION['logged_in'])) : ?>
+	      <a href="../src/logout.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Logout</a>
+	  <?php endif ; ?>
         </div>
       </div>
     </div>
