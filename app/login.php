@@ -1,6 +1,7 @@
 <?php
 
   require_once '../includes/global.inc.php';
+  require_once '../src/password.php';
 
   $error = "";
   $username = "";
@@ -37,7 +38,8 @@
 
     <form action="login.php" method="post">
       Username: <input type="text" name="username" value="<?php echo $username; ?>" /><br/>
-      Password: <input type="password" name="password" value="<?php echo $password; ?>" /><br/>
+      Password: <input type="password" name="password"
+        value="" /><br/>
       <input type="submit" value="Login" name="submit-login" />
     </form>
   </body>

@@ -55,7 +55,7 @@
 		if(isset($_SESSION['logged_in'])) : ?>
 		<a href="src/logout.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Logout</a>  
             <?php else : ?>
-		<a href="app/login.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Login</a>
+		<!-- <a href="app/login.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Login</a> -->
 	    <?php endif; ?>
 		<a href="index.php" class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
         </div>

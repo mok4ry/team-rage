@@ -10,6 +10,7 @@ class Tools{
   public function login($username, $password)
   {
     //hashedPass = magic hashing things
+    echo "SELECT * from members where name = '$username' and password = '$password'";
     $result = mysql_query("SELECT * from members where name = '$username' and password = '$password'");
 
     if (mysql_num_rows($result) == 1)
