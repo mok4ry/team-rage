@@ -37,10 +37,10 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
-$route['default_controller'] = "welcome";
+$route['pages/ragesub'] = "pages/ragesub";
+$route['default_controller'] = "pages/view/rage";
+$route['(:any)'] = 'pages/view/$1';
 $route['404_override'] = '';
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -1,6 +1,37 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $title ?> - Tutorial </title>
+  <title><?php echo $title ?> Team Rage</title>
+
+  <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+
+    }
+  </style>
+  <link href="../../../assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
-  <body>
-    <h1>Team Rage!</h1>
+
+<body>
+  
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	  <span class="icon-bar">
+	  <span class="icon-bar">
+	  <span class="icon-bar">
+        </a>
+        <a class="brand" href="#">Team Rage</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+	    <li><a href='http://arcticbase.student.rit.edu'>Rage Status</a></li>
+            <li><a href='http://arcticbase.student.rit.edu/index.php/updaterage'>Update Rage</a></li>
+          </ul>
+	  <a href='http://arcticbase.student.rit.edu' class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
