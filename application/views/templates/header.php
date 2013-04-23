@@ -31,7 +31,12 @@
             <li><a href='http://arcticbase.student.rit.edu/index.php/updaterage'>Update Rage</a></li>
           </ul>
 	  <a href='http://arcticbase.student.rit.edu' class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
-        </div>
+	<?php if($this->session->userdata('logged_in')) : ?>
+	  <a href='http://arcticbase.student.rit.edu/index.php/logout' class="brand" style="font-size:1em; margin-top:5px; float:right">Logout</a>
+	<?php else : ?>
+          <a href='http://arcticbase.student.rit.edu/index,php/login' class="brand" style="font-size:1em; margin-top:5px; float:right">Login</a>
+	<?php endif; ?>
+	</div>
       </div>
     </div>
   </div>
