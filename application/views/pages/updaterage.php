@@ -9,7 +9,7 @@
 
 <div class="row" style="float:left;display:inline;width:49%;">
 <div class="span8">
-  <form class="form-horizontal" action="ragesub" method="post" >
+  <form class="form-horizontal" action="ragefunctions" method="post" >
     <fieldset>
       <legend>Update your Status</legend>
       <div class="control-group">

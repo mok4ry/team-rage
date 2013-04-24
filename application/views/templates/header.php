@@ -28,7 +28,8 @@
         <div class="nav-collapse">
           <ul class="nav">
 	    <li><a href='http://arcticbase.student.rit.edu'>Rage Status</a></li>
-            <li><a href='http://arcticbase.student.rit.edu/index.php/updaterage'>Update Rage</a></li>
+            <li><a href='http://arcticbase.student.rit.edu/index.php/updaterage'>Image Rage</a></li>
+	    <li><a href='http://arcticbase.student.rit.edu/index.php/quoterage'>Quote Rage</a></li>
           </ul>
 	  <a href='http://arcticbase.student.rit.edu' class="brand" style="font-size:1em; margin-top:5px; float:right">Last Updated: <?php echo(date("n/j/Y - g:i A")); ?></a>
 	<?php if($this->session->userdata('logged_in')) : ?>
