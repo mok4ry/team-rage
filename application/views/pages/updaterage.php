@@ -9,7 +9,7 @@
 
 <div class="row" style="float:left;display:inline;width:49%;">
 <div class="span8">
-  <form class="form-horizontal" action="" method="post"> <!--Fill out an Action-->
+  <form class="form-horizontal" action="ragesub" method="post" >
     <fieldset>
       <legend>Update your Status</legend>
       <div class="control-group">
@@ -67,7 +67,7 @@
         </div>
       </div>
     <div class="form-actions">
-      <button type="submit" class="btn btn-primary"><i class="icon-fire icon-white"></i> RAGE</button>
+      <button name="sent" type="submit" class="btn btn-primary"><i class="icon-fire icon-white"></i> RAGE</button>
       <button type="reset" class="btn">Just Kidding</button>
     </div>
   </fieldset>
