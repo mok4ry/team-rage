@@ -1,5 +1,5 @@
 <div class='row' style='float:left;display:inline;width:33%;'>
-  <span class="span6">
+  <span class="span4">
 
 <?php
 
