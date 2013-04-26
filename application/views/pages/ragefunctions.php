@@ -49,12 +49,23 @@
      $result = mysql_query($query) or die(mysql_error());
    }
 
+   function addmember()
+   {
+     $name = mysql_real_escape_string($_POST['name']);
+     $pass = mysql_real_escape_string($_POST['inputPassword']);
+
+     $result = mysql_query("INSERT INTO members (name,password,rage_id) VALUES('$name','$pass','25')");
+   }
+
 if(isset($_POST['sent']))
 {
   ragesub();
   header('Location: http://arcticbase.student.rit.edu');
 }elseif (isset($_POST['quoterage'])){
   quotesub();
+  header('Location: http://arcticbase.student.rit.edu');
+}elseif (isset($_POST['member'])){
+  addmember();
   header('Location: http://arcticbase.student.rit.edu');
 }else{
   header('Location: http://arcticbase.student.rit.edu');

@@ -4,6 +4,7 @@
 
 ?>
 
+<!--Fields for adding members to the database-->
 <div class="container">
 <div class="row" style="float:left;display:inline;width:49%;">
 <div class="span6">
@@ -22,10 +23,12 @@
 	  <input type="password" class="input" id="inputPassword" name="inputPassword">
 	</div>
       </div>
-      <button type="submit" class="btn btn-primary">Add Member</button>
+      <button type="submit" class="btn btn-primary" name="member">Add Member</button>
     </div>
   </form>
 </div>
+
+<!--Selection field for removing existing members from the database-->
 <div class="span6">
   <form class="form-horizontal" action='ragefunctions' method="post">
     <fieldset>
