@@ -57,6 +57,23 @@
      $result = mysql_query("INSERT INTO members (name,password,rage_id) VALUES('$name','$pass','25')");
    }
 
+   function deleteMember()
+   {
+     $name = mysql_real_escape_string($_POST['name']);
+
+     $result = mysql_query("DELETE FROM members WHERE id='$name'") or die(mysql_error());
+   }
+
+   function addImage()
+   {
+     $url = $_POST['newImage'];
+     $name = mysql_real_escape_string($_POST['imageName']);
+     $directory = "../../../assets/img/rage_guys/";
+     file_put_contents($directory, file_get_contents($url));
+
+     //$result = mysql_query("INSERT INTO rages ('image','name') VALUES($directory,$name)") or die(mysql_error());
+   }
+
 if(isset($_POST['sent']))
 {
   ragesub();
@@ -67,6 +84,12 @@ if(isset($_POST['sent']))
 }elseif (isset($_POST['member'])){
   addmember();
   header('Location: http://arcticbase.student.rit.edu');
+}elseif (isset($_POST['deleteuser'])){
+  deleteMember();
+  header('Location: http://arcticbase.student.rit.edu/');
+}elseif (isset($_POST['newImage'])){
+//  addImage();
+  header('Location: http://arcticbase.student.rit.edu/index.php');
 }else{
   header('Location: http://arcticbase.student.rit.edu');
 }

@@ -51,5 +51,5 @@
 	</select>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" style="text-align:center">Remove</button>
+    <button type="submit" name="deleteuser" class="btn btn-danger" style="text-align:center">Remove</button>
   </form>
