@@ -4,5 +4,5 @@
   $query = "DELETE FROM quotes WHERE id ='$id'";
   $result = mysql_query($query) or die(mysql_error());
 
-  header("Location: http://arcticbase.student.rit.edu/index.php/quotemanagement");
+  header("Location:".$this->config->base_url()."index.php/quotemanagement");
 ?>

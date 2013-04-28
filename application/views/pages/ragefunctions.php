@@ -77,21 +77,18 @@
 if(isset($_POST['sent']))
 {
   ragesub();
-  header('Location: http://arcticbase.student.rit.edu');
 }elseif (isset($_POST['quoterage'])){
   quotesub();
-  header('Location: http://arcticbase.student.rit.edu');
 }elseif (isset($_POST['member'])){
   addmember();
-  header('Location: http://arcticbase.student.rit.edu');
 }elseif (isset($_POST['deleteuser'])){
   deleteMember();
-  header('Location: http://arcticbase.student.rit.edu/');
 }elseif (isset($_POST['newImage'])){
 //  addImage();
-  header('Location: http://arcticbase.student.rit.edu/index.php');
 }else{
-  header('Location: http://arcticbase.student.rit.edu');
+  continue;
 }
+
+header('Location:'.$this->config->base_url());
 
 ?>
