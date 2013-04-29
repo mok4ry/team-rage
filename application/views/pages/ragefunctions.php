@@ -52,7 +52,8 @@
    function addmember()
    {
      $name = mysql_real_escape_string($_POST['name']);
-     $pass = mysql_real_escape_string($_POST['inputPassword']);
+     $pass = hash("sha256",mysql_real_escape_string($_POST['inputPassword']));
+
 
      $result = mysql_query("INSERT INTO members (name,password,rage_id) VALUES('$name','$pass','25')");
    }
@@ -74,6 +75,23 @@
      //$result = mysql_query("INSERT INTO rages ('image','name') VALUES($directory,$name)") or die(mysql_error());
    }
 
+   function login()
+   {
+
+    $name = mysql_real_escape_string($_POST['name']);
+    $pass = hash("sha256",mysql_real_escape_string($_POST['inputPassword']));
+
+    $result = mysql_query("SELECT * FROM members WHERE name='$name' and password='$pass'") or die(mysql_error());
+    if(mysql_num_rows($result) == 1)
+    {
+      $data = array(
+	'username' => $name,
+	'logged_in' => TRUE
+        );
+      $this->session->set_userdata($data);
+    }
+   }
+
 if(isset($_POST['sent']))
 {
   ragesub();
@@ -85,6 +103,9 @@ if(isset($_POST['sent']))
   deleteMember();
 }elseif (isset($_POST['newImage'])){
 //  addImage();
+  continue;
+}elseif (isset($_POST['login'])){
+  login();
 }else{
   continue;
 }

@@ -1,7 +1,7 @@
 <div class="container">
 <form class="form-horizontal" action="ragefunctions" method="post">
   <fieldset>
-    <legend>Login</login>
+    <legend>Login</legend>
     <div class="control-group">
       <label class="control-label" for="name">Username</label>
       <div class="controls">
